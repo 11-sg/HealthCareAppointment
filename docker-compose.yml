@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  healthcare-app:
+    build: .
+    container_name: careflow-health
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - NODE_ENV=production
+      - JWT_SECRET=production_super_secret_healthcare_jwt_key_2026
+      - DATABASE_FILE=/app/data/healthcare.db
+      - SLOT_HOLD_DURATION_MINUTES=5
+    volumes:
+      - db_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  db_data:

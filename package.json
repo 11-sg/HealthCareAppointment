@@ -1,0 +1,25 @@
+{
+  "name": "healthcare-appointment-manager-root",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Healthcare Appointment & Follow-up Manager with AI triage, double-booking prevention, doctor leave management, and calendar/email integration",
+  "scripts": {
+    "dev": "npm run dev --prefix server & npm run dev --prefix client",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "build": "npm run build --prefix server && npm run build --prefix client",
+    "start": "npm start --prefix server",
+    "seed": "npm run seed --prefix server",
+    "test": "npm test --prefix server",
+    "package-zip": "node scripts/package-zip.js"
+  },
+  "keywords": [
+    "healthcare",
+    "appointments",
+    "ai-triage",
+    "google-calendar",
+    "role-based-portals"
+  ],
+  "author": "Healthcare Team",
+  "license": "MIT"
+}
