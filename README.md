@@ -3,6 +3,7 @@
 > A production-grade healthcare appointment and clinical follow-up platform with role-based portals (Patients, Doctors, Admins), AI-powered pre-visit symptom triage and post-visit care plan generation (Google Gemini 1.5 Flash), concurrency-safe slot holds, physician leave conflict resolution, automated medication reminders, transactional outbox queue with exponential backoff, and Google Calendar OAuth 2.0 / RFC-5545 `.ics` sync.
 
 ---
+https://healthcareappointment-3ulz.onrender.com/
 
 ## 📑 Table of Contents
 - [✨ Key Features](#-key-features)
