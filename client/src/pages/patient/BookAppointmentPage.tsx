@@ -15,7 +15,7 @@ import {
   FileText,
 } from 'lucide-react';
 import { DoctorProfile, PreVisitSummary, SlotAvailability } from '../../types';
-import { doctorApi, slotApi, appointmentApi } from '../../services/api';
+import { doctorApi, slotApi, appointmentApi, getApiUrl } from '../../services/api';
 import { useNotification } from '../../contexts/NotificationContext';
 import { SlotPicker } from '../../components/SlotPicker';
 import { HoldTimer } from '../../components/HoldTimer';
@@ -529,7 +529,7 @@ export const BookAppointmentPage: React.FC = () => {
           {/* Actions */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <a
-              href={`/api/appointments/${confirmedAppt.id}/ics`}
+              href={getApiUrl(`/appointments/${confirmedAppt.id}/ics`)}
               download
               className="w-full sm:w-auto px-5 py-2.5 bg-slate-50 hover:bg-slate-100 text-slate-800 border border-surface-border rounded-xl text-xs font-medium transition shadow-sm flex items-center justify-center gap-2"
             >

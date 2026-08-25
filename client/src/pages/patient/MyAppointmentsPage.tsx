@@ -13,7 +13,7 @@ import {
   ChevronRight,
 } from 'lucide-react';
 import { Appointment } from '../../types';
-import { appointmentApi } from '../../services/api';
+import { appointmentApi, getApiUrl } from '../../services/api';
 import { useNotification } from '../../contexts/NotificationContext';
 import { StatusBadge } from '../../components/StatusBadge';
 import { UrgencyBadge } from '../../components/UrgencyBadge';
@@ -214,7 +214,7 @@ export const MyAppointmentsPage: React.FC = () => {
                     )}
 
                     <a
-                      href={`/api/appointments/${appt.id}/ics`}
+                      href={getApiUrl(`/appointments/${appt.id}/ics`)}
                       download
                       className="px-3.5 py-2 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 border border-surface-border font-mono text-[11px] transition flex items-center gap-1.5 shadow-sm"
                     >

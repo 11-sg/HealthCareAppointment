@@ -1,10 +1,14 @@
 services:
+  # ============================================================================
+  # 1. Backend Web Service
+  # ============================================================================
   - type: web
-    name: careflow-health
-    env: node
+    name: careflow-backend
+    runtime: node
     plan: free
-    buildCommand: npm install --prefix server && npm install --prefix client && npm run build --prefix client && npm run build --prefix server
-    startCommand: cd server && npm run start
+    rootDir: server
+    buildCommand: npm install && npm run build && npm run seed
+    startCommand: npm run start
     envVars:
       - key: NODE_ENV
         value: production
@@ -12,3 +16,26 @@ services:
         value: 10000
       - key: JWT_SECRET
         generateValue: true
+      - key: CORS_ORIGIN
+        value: "*"
+
+  # ============================================================================
+  # 2. Frontend Static Site
+  # ============================================================================
+  - type: web
+    name: careflow-frontend
+    runtime: static
+    plan: free
+    rootDir: client
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: careflow-backend
+          property: host
